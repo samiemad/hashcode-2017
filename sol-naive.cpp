@@ -47,8 +47,7 @@ int main(){
 		}
 	}
 	sort(w.begin(), w.end());
-//	reverse(w.begin(), w.end());
-	cerr<<w.size()<<"\n"<<get<0>(w[0])<<" "<<get<0>(w[w.size()-1])<<"\n";
+	reverse(w.begin(), w.end());
 	for(auto x:w){
 		double imp;
 		int vv, ee, cc;
