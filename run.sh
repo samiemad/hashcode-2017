@@ -2,7 +2,7 @@
 
 echo "Compiling..."
 g++ score.cpp --std=c++14 -O3 -o score || exit -1
-g++ sol-naive.cpp --std=c++14 -O3 -o vid || exit -1
+g++ sol-dp.cpp --std=c++14 -O3 -o vid || exit -1
 
 if [[ -z $1 ]]; then
 	files="example";

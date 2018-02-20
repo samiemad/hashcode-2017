@@ -10,7 +10,7 @@ int rv[1000006];
 int re[1000006];
 int rn[1000006];
 
-vector<tuple<double, int, int, int>> w;
+priority_queue<tuple<double, int, int, int>> w;
 int sz[1003];
 vector<int> sol[1003];
 set<pair<int,int>> u;
@@ -44,15 +44,14 @@ int main(){
 			int c = p.first;
 			int l = p.second;
 			double ww = weigh(rv[i], t[re[i]], p.second, rn[i]);
-			w.push_back( make_tuple(ww, rv[i], re[i], c) );
+			w.push( make_tuple(ww, rv[i], re[i], c) );
 		}
 	}
-	sort(w.begin(), w.end());
-	reverse(w.begin(), w.end());
-	for(auto x:w){
+	while(!w.empty()){
 		double imp;
 		int vv, ee, cc;
-		tie(imp, vv, ee, cc) = x;
+		tie(imp, vv, ee, cc) = w.top();
+		w.pop();
 		if( sz[ee] + v[vv] <= X && !u.count({ee,vv}) ){
 			sz[ee] += v[vv];
 			sol[ee].push_back(vv);
