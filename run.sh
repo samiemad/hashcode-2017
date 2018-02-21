@@ -1,8 +1,9 @@
 #!/bin/bash
 
 echo "Compiling..."
-g++ score.cpp --std=c++14 -O3 -o score || exit -1
-g++ sol-dp.cpp --std=c++14 -O3 -o vid || exit -1
+mkdir -p bin
+g++ score.cpp --std=c++14 -O3 -o bin/score || exit -1
+g++ sol-dp.cpp --std=c++14 -O3 -o bin/vid || exit -1
 
 if [[ -z $1 ]]; then
 	files="example";
@@ -16,8 +17,8 @@ fi
 #	name=${name%.*}
 for name in $files; do
 	printf "Running for file $name...";
-	time ./vid < "input/${name}.in" > "output/${name}.out" ;
-	score=`./score "output/$name.out" < "input/$name.in"` || exit -1
+	time ./bin/vid < "input/${name}.in" > "output/${name}.out" ;
+	score=`./bin/score "output/$name.out" < "input/$name.in"` || exit -1
 	echo "Your score for $name is: $score"
 	total=$(python -c "print $total+$score")
 #	echo "file $name processing done";
