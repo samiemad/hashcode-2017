@@ -1,9 +1,9 @@
 #!/bin/bash
 
 echo "Compiling..."
-mkdir -p bin
+mkdir -p bin output
 g++ score.cpp --std=c++14 -O3 -o bin/score || exit -1
-g++ sol-dp.cpp --std=c++14 -O3 -o bin/vid || exit -1
+g++ sol-mcmf.cpp --std=c++14 -O3 -o bin/vid || exit -1
 
 if [[ -z $1 ]]; then
 	files="example";
