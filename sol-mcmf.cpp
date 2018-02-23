@@ -112,7 +112,7 @@ int main(){
 		for(auto c:adj[re[i]]){
 		    if(v[rv[i]] > X)    continue;
             mcmf.AddEdge(i+1, c.first+R+1, v[rv[i]], c.second*rn[i]);
-//            mcmf.AddEdge(c.first+R+1, i+1, v[rv[i]], c.second*rn[i]);
+            mcmf.AddEdge(c.first+R+1, i+1, v[rv[i]], c.second*rn[i]);
 		}
 	}
 	for(int i=0; i<C; ++i){
